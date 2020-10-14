@@ -18,6 +18,7 @@ $red: #e16c96 !default;
 $yellow: #fccb16 !default;
 $purple: #983680 !default; // 紫色
 $cyan: #5cb3cc !default; // 青色
+$blue-lighter: #e8fcff !default;
 
 // 功能颜色
 $primary: $bule !default;
@@ -36,7 +37,7 @@ $font-family-base: $font-family-sans-serif !default;
 // 字体大小
 $font-size-base: 1rem !default;
 $font-size-lg: $font-size-base * 1.25 !default;
-$font-size-base: $font-size-base * 0.875 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
 
 // 字重
 $font-weight-lighter: lighter !default;
@@ -69,3 +70,50 @@ $link-hover-decoration: underline !default;
 $body-bg: $white !default;
 $body-color: $gray-900 !default;
 $body-text-align: null !default;
+
+/**
+* 边框样式
+*/
+$border-width: 1px !default;
+$border-color: gray-300 !default;
+$border-radius: 0.25rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-sm: 0.2rem !default;
+
+/**
+ 按钮样式
+*/
+// 基本属性
+$btn-padding-y: 0.375rem !default;
+$btn-padding-x: 0.75rem !default;
+$btn-font-weight: $font-weight-normal !default;
+$btn-font-family: $font-family-base !default;
+$btn-font-size: $font-size-base !default;
+$btn-line-height: $line-height-base !default;
+$btn-border-width: $border-width !default;
+$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15),
+  inset 0 1px 1px rgba(darken($white, 50%), 0.15) !default;
+$btn-transition: all 0.15s ease-in-out;
+
+// 链接按钮
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+$btn-link-disabled-color: $gray-600 !default;
+
+// 禁用样式
+$btn-disabled-opacity: 0.65 !default;
+
+// small号的按钮
+$btn-padding-y-sm: 0.25rem !default;
+$btn-padding-x-sm: 0.5rem !default;
+$btn-font-size-sm: $font-size-sm !default;
+
+// large号的按钮
+$btn-padding-y-lg: 0.5rem !default;
+$btn-padding-x-lg: 1rem !default;
+$btn-font-size-lg: $font-size-lg !default;
+
+// radius
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-border-radius-sm: $border-radius-sm !default;
