@@ -31,6 +31,7 @@
   }
 }
 
+// large尺寸按钮样式
 .btn-lg {
   @include btn-size(
     $btn-padding-x-lg,
@@ -39,6 +40,8 @@
     $btn-border-radius-lg
   );
 }
+
+// small尺寸按钮样式
 .btn-sm {
   @include btn-size(
     $btn-padding-x-sm,
@@ -58,10 +61,41 @@
   @include btn-style($warning, $warning, $white);
 }
 .btn-default {
-  @include btn-style($white, $gray-400, $body-color);
-  &:hover{
-    background-color: $blue-lighter;
-    border-color: lighten($primary,1%);
-    color: $primary;
+  @include btn-style(
+    $white,
+    $gray-400,
+    $body-color,
+    $blue-lighter,
+    lighten($primary, 1%),
+    $primary
+  );
+}
+// 链接
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+  box-shadow: none;
+  &:hover {
+    color: $link-hover-color;
+    > * {
+      text-decoration: $link-decoration;
+    }
+  }
+  &:focus,
+  &.focus {
+    color: $link-hover-color;
+    > * {
+      text-decoration: $link-decoration;
+    }
+  }
+  &:disabled,
+  &.disabled {
+    opacity: $btn-disabled-opacity;
+    color: $btn-link-disabled-color;
+    cursor: not-allowed;
+    > * {
+      pointer-events: none;
+    }
   }
 }
