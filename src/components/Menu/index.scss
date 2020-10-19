@@ -1,0 +1,51 @@
+@import "../../styles/index.scss";
+.pa-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 0;
+  list-style: none;
+  box-shadow: $menu-box-shadow;
+  // menuItem的基础样式
+  .menu-item {
+    cursor: pointer;
+    transition: $menu-transition;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    &.is-disabled {
+      color: $menu-item-disabled-color;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+  //   mode为horizontal时样式
+  &.menu-horizontal {
+    margin-bottom: 30px;
+    border-bottom: $menu-border-width solid $menu-border-color;
+    .menu-item {
+      margin: $menu-item-margin-y $menu-item-margin-x;
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      &.is-active,
+      &:hover {
+        color: $menu-item-active-color;
+        border-bottom: $menu-item-active-border-width solid
+          $menu-item-active-color;
+      }
+    }
+  }
+  //   mode为vertical时样式
+  &.menu-vertical {
+    flex-direction: column;
+    .menu-item {
+      margin: $menu-item-margin-x 10px;
+      padding: $menu-item-padding-x $menu-item-padding-y;
+      &.is-active,
+      &:hover {
+        color: $menu-item-active-color;
+        border-left: $menu-item-active-border-width solid
+          $menu-item-active-color;
+      }
+    }
+  }
+}

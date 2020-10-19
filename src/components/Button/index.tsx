@@ -4,13 +4,13 @@ import classnames from "classnames";
 
 
 // button的尺寸
-export enum ButtonSize {
+enum ButtonSize {
     Large = "lg",
     Small = "sm"
 }
 
 // button的类型
-export enum ButtonType {
+enum ButtonType {
     Primary = "primary",
     Default = "default",
     Danger = "danger",
@@ -71,3 +71,4 @@ Button.defaultProps = {
 }
 
 export default Button;
+export { ButtonSize, ButtonType };
