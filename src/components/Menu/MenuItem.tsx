@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import { MenuContext } from "../index";
+import { MenuContext } from "./index";
 
 // MenuItem的参数
 export interface MenuItemProps {
-    index?: number;
+    index?: string;
     disabled?: boolean;
     className?: string;
     style?: React.CSSProperties;
@@ -20,7 +20,7 @@ const MenuItem: React.FC<AllMenuItemProps> = props => {
     })
     // 点击事件通过context调用父组件的方法
     const handleClick = () => {
-        if (context.onSelect && !disabled && (typeof index === "number")) {
+        if (context.onSelect && !disabled && (typeof index === "string")) {
             context.onSelect(index);
         }
     }

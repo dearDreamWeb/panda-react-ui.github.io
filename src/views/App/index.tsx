@@ -3,6 +3,7 @@ import './App.scss';
 import Button, { ButtonType, ButtonSize } from "../../components/Button";
 import Menu from "../../components/Menu";
 import MenuItem from "../../components/Menu/MenuItem";
+import SubMenu from "../../components/Menu/SubMenu";
 
 function App() {
   return (
@@ -21,16 +22,24 @@ function App() {
         <Button btnType={ButtonType.Link} size={ButtonSize.Small} href="www.blogwxb.cn">primary small</Button>
 
       </div>
-      <Menu mode="vertical">
+      <Menu mode="vertical" defaultOpenKeys={["3"]}>
         <MenuItem>
-          menuItem1
+          子组件1
         </MenuItem>
         <MenuItem>
-          menuItem2
+          子组件2
         </MenuItem>
-        <MenuItem disabled={true}>
-          menuItem3
+        <MenuItem >
+          子组件3
         </MenuItem>
+        <SubMenu title="下拉菜单">
+          <MenuItem>
+            选项1
+          </MenuItem>
+          <MenuItem>
+            选项2
+        </MenuItem>
+        </SubMenu>
       </Menu>
     </div>
   );

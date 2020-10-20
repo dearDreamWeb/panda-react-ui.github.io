@@ -135,3 +135,9 @@ $menu-item-margin-x: 1rem !default;
 $menu-item-active-color: $primary !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color: $gray-300 !default;
+
+// pa-submenu
+$submenu-padding-y: 0.25rem !default;
+$submenu-padding-x: 1.25rem !default;
+$submenu-border-radius: 3px !default;
+$submenu-box-shadow: 0 0 2px $gray-500;

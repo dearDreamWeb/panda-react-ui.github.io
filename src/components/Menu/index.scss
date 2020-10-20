@@ -19,6 +19,15 @@
       cursor: not-allowed;
     }
   }
+  // 默认隐藏SubMenu
+  .pa-submenu {
+    display: none;
+  }
+  // 该类名显示SubMenu
+  .open-submenu {
+    display: block;
+  }
+
   //   mode为horizontal时样式
   &.menu-horizontal {
     margin-bottom: 30px;
@@ -33,18 +42,83 @@
           $menu-item-active-color;
       }
     }
+    // SubMenu组件下的样式
+    .submenu-item {
+      position: relative;
+      margin: $menu-item-margin-y $menu-item-margin-x;
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      &.is-active,
+      &:hover {
+        color: $menu-item-active-color;
+        border-bottom: $menu-item-active-border-width solid
+          $menu-item-active-color;
+      }
+      .pa-submenu {
+        position: absolute;
+        margin-top: 1rem;
+        left: -$submenu-padding-x;
+        padding: $submenu-padding-y $submenu-padding-x;
+        text-align: center;
+        width: 100%;
+        background-color: $white;
+        box-shadow: $submenu-box-shadow;
+        box-sizing: content-box;
+        .menu-item {
+          list-style: none;
+          margin: 0;
+          padding: $submenu-padding-y 0;
+          color: $black;
+          border-bottom: none;
+          white-space: nowrap;
+          &.is-active,
+          &:hover {
+            color: $menu-item-active-color;
+          }
+        }
+      }
+    }
   }
   //   mode为vertical时样式
   &.menu-vertical {
     flex-direction: column;
     .menu-item {
-      margin: $menu-item-margin-x 10px;
-      padding: $menu-item-padding-x $menu-item-padding-y;
+      margin: $menu-item-margin-y $menu-item-margin-x;
+      padding: $menu-item-padding-y;
+      border-left: $menu-item-active-border-width solid $menu-border-color;
       &.is-active,
       &:hover {
         color: $menu-item-active-color;
         border-left: $menu-item-active-border-width solid
           $menu-item-active-color;
+      }
+    }
+    // SubMenu组件下的样式
+    .submenu-item {
+      cursor: pointer;
+      margin: $menu-item-margin-y $menu-item-margin-x;
+      padding: $menu-item-padding-y;
+      border-left: $menu-item-active-border-width solid $menu-border-color;
+      &.is-active {
+        border-left: $menu-item-active-border-width solid
+          $menu-item-active-color;
+      }
+      .submenu-title {
+        &:hover {
+          color: $menu-item-active-color;
+        }
+      }
+      .pa-submenu {
+        padding-left: $menu-item-padding-x;
+        .menu-item {
+          list-style: none;
+          color: $black;
+          border-left: none;
+          &.is-active,
+          &:hover {
+            color: $menu-item-active-color;
+          }
+        }
       }
     }
   }

@@ -5,24 +5,27 @@ import MenuItem from "./MenuItem";
 import { MenuItemProps } from "./MenuItem";
 
 type MenuMode = "horizontal" | "vertical";
-type SelectCallback = (selectIndex: number) => void;
+type SelectCallback = (selectIndex: string) => void;
 // Menu组件的参数
 export interface MenuProps {
-    defaultIndex?: number;
+    defaultIndex?: string;
     className?: string;
     mode?: MenuMode;
     style?: React.CSSProperties;
     onSelect?: SelectCallback;
     children?: React.ReactNode;
+    defaultOpenKeys?: string[];  // 默认打开哪些SubMenu菜单
 }
 
 // 定义传入子组件参数context
 interface IMenuContext {
-    index: number;
+    index: string;
     onSelect?: SelectCallback;
+    mode?: string;
+    defaultOpenKeys?: string[];  // 默认打开哪些SubMenu菜单
 }
 // 导出父组件的createContext
-export const MenuContext = createContext<IMenuContext>({ index: 0 })
+export const MenuContext = createContext<IMenuContext>({ index: "0" })
 
 type AllMenuProps = MenuProps & React.HTMLAttributes<HTMLElement>;
 
@@ -32,9 +35,9 @@ const renderChildren = (children: any) => {
     return React.Children.map(children, (child, index) => {
         const childEl = child as React.FunctionComponentElement<MenuItemProps>;
         const { displayName } = childEl.type;
-        if (displayName === "MenuItem") {
+        if (displayName === "MenuItem" || displayName === "SubMenu") {
             // 克隆一个childEl元素，添加参数index
-            return React.cloneElement(childEl, { index });
+            return React.cloneElement(childEl, { index: index.toString() });
         } else {
             console.error("Warning: Menu has a child which is not a MenuItem component");
         }
@@ -43,13 +46,13 @@ const renderChildren = (children: any) => {
 
 // Menu组件
 const Menu: React.FC<AllMenuProps> = props => {
-    const { className, mode, style, defaultIndex, children, onSelect, ...restProps } = props;
+    const { className, mode, style, defaultIndex, children, onSelect, defaultOpenKeys, ...restProps } = props;
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
     const classes = classnames("pa-menu", className, {
         [`menu-${mode}`]: true
     })
     // 点击事件回调
-    const handleClick = (index: number) => {
+    const handleClick = (index: string) => {
         setActiveIndex(index);
         if (onSelect) {
             onSelect(index);
@@ -57,8 +60,10 @@ const Menu: React.FC<AllMenuProps> = props => {
     }
     // 传入context的值
     const passedContext: IMenuContext = {
-        index: activeIndex ? activeIndex : 0,
-        onSelect: handleClick
+        index: activeIndex ? activeIndex : "0",
+        onSelect: handleClick,
+        mode,
+        defaultOpenKeys
     }
     return (
         <ul className={classes} style={style} {...restProps} data-testid="test-menu">
@@ -73,7 +78,8 @@ MenuItem.displayName = "MenuItem";
 
 // Menu组件的默认参数 
 Menu.defaultProps = {
-    defaultIndex: 0,
+    defaultIndex: "0",
+    defaultOpenKeys: [],
     mode: "horizontal"
 }
 export default Menu;
