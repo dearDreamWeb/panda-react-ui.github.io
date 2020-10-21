@@ -22,8 +22,8 @@ function App() {
         <Button btnType={ButtonType.Link} size={ButtonSize.Small} href="www.blogwxb.cn">primary small</Button>
 
       </div>
-      <Menu mode="vertical" defaultOpenKeys={["3"]}>
-        <MenuItem>
+      <Menu mode="vertical">
+        <MenuItem disabled={true}>
           子组件1
         </MenuItem>
         <MenuItem>
@@ -33,7 +33,7 @@ function App() {
           子组件3
         </MenuItem>
         <SubMenu title="下拉菜单">
-          <MenuItem>
+          <MenuItem disabled={true}>
             选项1
           </MenuItem>
           <MenuItem>

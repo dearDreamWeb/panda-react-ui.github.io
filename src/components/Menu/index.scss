@@ -15,7 +15,6 @@
     }
     &.is-disabled {
       color: $menu-item-disabled-color;
-      pointer-events: none;
       cursor: not-allowed;
     }
   }
@@ -40,6 +39,9 @@
         color: $menu-item-active-color;
         border-bottom: $menu-item-active-border-width solid
           $menu-item-active-color;
+      }
+      &.is-disabled {
+        color: $menu-item-disabled-color !important;
       }
     }
     // SubMenu组件下的样式
@@ -75,6 +77,11 @@
           &:hover {
             color: $menu-item-active-color;
           }
+          &.is-disabled {
+            color: $menu-item-disabled-color;
+            // pointer-events: none;
+            cursor: not-allowed;
+          }
         }
       }
     }
@@ -103,6 +110,9 @@
         border-left: $menu-item-active-border-width solid
           $menu-item-active-color;
       }
+      &.is-disabled {
+        border-left: $menu-item-active-border-width solid $menu-border-color;
+      }
       .submenu-title {
         &:hover {
           color: $menu-item-active-color;
@@ -117,6 +127,11 @@
           &.is-active,
           &:hover {
             color: $menu-item-active-color;
+          }
+          &.is-disabled {
+            color: $menu-item-disabled-color;
+            // pointer-events: none;
+            cursor: not-allowed;
           }
         }
       }
