@@ -27,6 +27,15 @@ $warning: $yellow !default;
 $danger: $red !default;
 $info: $cyan !default;
 
+// 颜色遍历map
+$theme-colors: (
+  "primary": $primary,
+  "success": $success,
+  "warning": $warning,
+  "danger": $danger,
+  "info": $info,
+);
+
 // 字体类型
 $font-family-sans-serif: "Helvetica Neue", Arial, "Noto Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;

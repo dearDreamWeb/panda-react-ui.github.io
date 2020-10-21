@@ -18,6 +18,13 @@
       cursor: not-allowed;
     }
   }
+  .submenu-title {
+    // 图标位置
+    .arrow-down {
+      padding: 0 0.5rem;
+      transition: transform 0.4s linear;
+    }
+  }
   // 默认隐藏SubMenu
   .pa-submenu {
     display: none;
@@ -50,12 +57,21 @@
       margin: $menu-item-margin-y $menu-item-margin-x;
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
+      .submenu-title {
+        &:hover {
+          // 图标旋转
+          .arrow-down {
+            transform: rotateZ(180deg);
+          }
+        }
+      }
       &.is-active,
       &:hover {
         color: $menu-item-active-color;
         border-bottom: $menu-item-active-border-width solid
           $menu-item-active-color;
       }
+
       .pa-submenu {
         position: absolute;
         margin-top: 1rem;
@@ -112,6 +128,12 @@
       }
       &.is-disabled {
         border-left: $menu-item-active-border-width solid $menu-border-color;
+      }
+      &.is-opened {
+        // 图标旋转
+        .arrow-down {
+          transform: rotateZ(180deg);
+        }
       }
       .submenu-title {
         &:hover {

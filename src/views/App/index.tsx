@@ -4,10 +4,14 @@ import Button, { ButtonType, ButtonSize } from "../../components/Button";
 import Menu from "../../components/Menu";
 import MenuItem from "../../components/Menu/MenuItem";
 import SubMenu from "../../components/Menu/SubMenu";
-
+import Icon from "../../components/Icon";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas);
 function App() {
   return (
     <div className="App">
+      <Icon icon="coffee" theme="primary" size="3x"/>
       <div className="btn-wrap">
         <Button btnType={ButtonType.Default}>default</Button>
         <Button btnType={ButtonType.Primary}>primary</Button>
@@ -29,7 +33,7 @@ function App() {
         <MenuItem>
           子组件2
         </MenuItem>
-        <MenuItem >
+        <MenuItem>
           子组件3
         </MenuItem>
         <SubMenu title="下拉菜单">

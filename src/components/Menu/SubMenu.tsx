@@ -2,6 +2,10 @@ import React, { useState, useContext, FunctionComponentElement } from "react";
 import classnames from "classnames";
 import { MenuContext } from "./index";
 import { MenuItemProps } from "./MenuItem";
+import Icon from "../Icon";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fas);
 
 export interface SubMenuProps {
     index?: string;
@@ -9,16 +13,19 @@ export interface SubMenuProps {
     className?: string;
 }
 
-const SubMenu: React.FC<SubMenuProps> = props => {
-    const { index, title, className, children } = props;
+type allSubMenuProps = SubMenuProps & React.HTMLAttributes<HTMLElement>;
+
+const SubMenu: React.FC<allSubMenuProps> = props => {
+    const { index, title, className, children, ...restProps } = props;
     const context = useContext(MenuContext);
     const defaultOpenKeys = context.defaultOpenKeys as Array<string>; // 获取默认打开的菜单的数组
     // 只有在mode为vertical时才使用默认打开功能，判断初始化时是否打开
-    const isOpen = (index && context.mode === "vertical") ? defaultOpenKeys.includes(index) : false; 
+    const isOpen = (index && context.mode === "vertical") ? defaultOpenKeys.includes(index) : false;
     const [openSubMenu, setOpenSubMenu] = useState(isOpen);  // SubMenu是否打开
     // submenItem的class
     const classes = classnames("submenu-item", className, {
-        "is-active": context.index.split("-")[0] === index
+        "is-active": context.index.split("-")[0] === index,
+        "is-opened": openSubMenu  // 是否展开
     })
     // subMenu的class
     const subMenuClasses = classnames("pa-submenu", {
@@ -35,7 +42,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
             }
         })
         return (
-            <ul className={subMenuClasses}>
+            <ul className={subMenuClasses} {...restProps}>
                 {childrenComponent}
             </ul>
         )
@@ -71,7 +78,9 @@ const SubMenu: React.FC<SubMenuProps> = props => {
         <li key={index} className={classes} {...hoverEvents}>
             <div className="submenu-title" {...clickEvents}>
                 {title}
+                <Icon icon="angle-down" className="arrow-down" />
             </div>
+
             {renderChildren()}
         </li>
     )
