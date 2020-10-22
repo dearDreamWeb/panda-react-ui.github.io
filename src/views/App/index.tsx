@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import Button, { ButtonType, ButtonSize } from "../../components/Button";
+import Button from "../../components/Button";
 import Menu from "../../components/Menu";
 import MenuItem from "../../components/Menu/MenuItem";
 import SubMenu from "../../components/Menu/SubMenu";
@@ -8,41 +8,49 @@ import Icon from "../../components/Icon";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas);
+
+
 function App() {
   return (
     <div className="App">
-      <Icon icon="coffee" theme="primary" size="3x"/>
+      <Icon icon="coffee" theme="primary" size="3x" />
       <div className="btn-wrap">
-        <Button btnType={ButtonType.Default}>default</Button>
-        <Button btnType={ButtonType.Primary}>primary</Button>
-        <Button btnType={ButtonType.Warning}>warnning</Button>
-        <Button btnType={ButtonType.Danger} disabled={true}>danger</Button>
-        <Button btnType={ButtonType.Danger}>danger</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>primary large</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>primary small</Button>
-        <Button btnType={ButtonType.Link}>danger</Button>
-        <Button btnType={ButtonType.Link} href="www.blogwxb.cn" disabled={true}>primary</Button>
-        <Button btnType={ButtonType.Link} size={ButtonSize.Large} href="www.blogwxb.cn">primary large</Button>
-        <Button btnType={ButtonType.Link} size={ButtonSize.Small} href="www.blogwxb.cn">primary small</Button>
+        <Button btnType="default">default</Button>
+        <Button btnType="primary">primary</Button>
+        <Button btnType="warning">warnning</Button>
+        <Button btnType="danger" disabled>danger</Button>
+        <Button btnType="danger">danger</Button>
+        <Button btnType="primary" size="lg">primary large</Button>
+        <Button btnType="primary" size="sm">primary small</Button>
+        <Button btnType="link">danger</Button>
+        <Button btnType="link" href="www.blogwxb.cn" disabled>primary</Button>
+        <Button btnType="link" size="lg" href="www.blogwxb.cn">primary large</Button>
+        <Button btnType="link" size="sm" href="www.blogwxb.cn">primary small</Button>
 
       </div>
       <Menu mode="vertical">
-        <MenuItem disabled={true}>
+        <MenuItem>
           子组件1
         </MenuItem>
-        <MenuItem>
+        <MenuItem disabled>
           子组件2
         </MenuItem>
         <MenuItem>
           子组件3
         </MenuItem>
         <SubMenu title="下拉菜单">
-          <MenuItem disabled={true}>
+          <MenuItem disabled>
             选项1
           </MenuItem>
           <MenuItem>
             选项2
-        </MenuItem>
+          </MenuItem>
+          <MenuItem>
+            选项3
+          </MenuItem>
+          <MenuItem>
+            选项4
+          </MenuItem>
         </SubMenu>
       </Menu>
     </div>

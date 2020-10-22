@@ -1,0 +1,9 @@
+@include slide-animation("top", scaleY(0.45, 0.45), scaleY(1), center top);
+@include slide-animation(
+  "bottom",
+  scaleY(0.45, 0.45),
+  scaleY(1),
+  center bottom
+);
+@include slide-animation("left", scaleY(0.45, 0.45), scaleY(1), left center );
+@include slide-animation("right", scaleY(0.45, 0.45), scaleY(1), right center );

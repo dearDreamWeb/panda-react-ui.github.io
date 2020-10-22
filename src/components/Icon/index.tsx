@@ -8,7 +8,6 @@ export type ThemeProps = "primary" | "danger" | "info" | "success" | "warning";
 
 export interface IconProps extends FontAwesomeIconProps {
     theme?: ThemeProps,
-    // style?: React.CSSProperties
 }
 
 const Icon: React.FC<IconProps> = props => {

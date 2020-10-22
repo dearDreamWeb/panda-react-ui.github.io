@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { MenuContext } from "./index";
 import { MenuItemProps } from "./MenuItem";
 import Icon from "../Icon";
+import Transition from "../../components/Transition";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas);
@@ -42,9 +43,16 @@ const SubMenu: React.FC<allSubMenuProps> = props => {
             }
         })
         return (
-            <ul className={subMenuClasses} {...restProps}>
-                {childrenComponent}
-            </ul>
+            <Transition
+                in={openSubMenu}
+                timeout={300}
+                animation="slide-in-top"
+            > 
+                <ul className={subMenuClasses} {...restProps}>
+                    {childrenComponent}
+                </ul>
+            </Transition>
+
         )
     }
 

@@ -25,14 +25,6 @@
       transition: transform 0.4s linear;
     }
   }
-  // 默认隐藏SubMenu
-  .pa-submenu {
-    display: none;
-  }
-  // 该类名显示SubMenu
-  .open-submenu {
-    display: block;
-  }
 
   //   mode为horizontal时样式
   &.menu-horizontal {

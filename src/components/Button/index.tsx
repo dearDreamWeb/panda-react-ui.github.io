@@ -4,19 +4,10 @@ import classnames from "classnames";
 
 
 // button的尺寸
-enum ButtonSize {
-    Large = "lg",
-    Small = "sm"
-}
+type ButtonSize = "lg" | "sm";
 
 // button的类型
-enum ButtonType {
-    Primary = "primary",
-    Default = "default",
-    Danger = "danger",
-    Warning = "warning",
-    Link = "link"     // 链接类型
-}
+type ButtonType = "primary" | "default" | "danger" | "warning" | "link";
 
 // button的参数
 interface BaseButtonProps {
@@ -39,10 +30,10 @@ const Button: React.FC<ButtonProps> = props => {
     const classes = classnames("btn", className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
-        "disabled": btnType === ButtonType.Link && disabled
+        "disabled": btnType === "link" && disabled
     })
     // 判断是否为link类型，是的话就是a标签，不是就是button标签
-    if (btnType === ButtonType.Link) {
+    if (btnType === "link") {
         return (
             <span
                 className={classes}
@@ -67,8 +58,7 @@ const Button: React.FC<ButtonProps> = props => {
 
 Button.defaultProps = {
     disabled: false,
-    btnType: ButtonType.Default
+    btnType: "default"
 }
 
 export default Button;
-export { ButtonSize, ButtonType };
