@@ -35,7 +35,7 @@ const mockMenu = (props: any) => {
             <SubMenu title="dropdown">
                 <MenuItem>dropdown1</MenuItem>
                 <MenuItem>dropdown2</MenuItem>
-                <MenuItem disabled={true}>dropdown3</MenuItem>
+                <MenuItem disabled>dropdown3</MenuItem>
             </SubMenu>
         </Menu>
     )
@@ -106,10 +106,7 @@ describe("test SubMenu", () => {
         wrapper = render(mockMenu(testProps));
         wrapper.container.append(cssFile());   // 填充css文件
         activeEl = wrapper.getByText("menuItem1");
-        disabledEl = wrapper.getByText("dropdown3");  // 状态为disabled的组件
         dropdownEl = wrapper.getByText("dropdown");
-        // 初始状态不显示
-        expect(wrapper.getByText("dropdown1")).not.toBeVisible();
         // 鼠标移入显示
         fireEvent.mouseEnter(dropdownEl);
         await wait(() => {
@@ -122,6 +119,7 @@ describe("test SubMenu", () => {
         expect(activeEl).not.toHaveClass("is-active");
         expect(wrapper.getByText("dropdown1")).toHaveClass("is-active");
 
+        disabledEl = wrapper.getByText("dropdown3");  // 状态为disabled的组件
         // 看disabled的组件是否显示is-disabled的class类名
         expect(disabledEl).toHaveClass("is-disabled");
 
@@ -139,15 +137,15 @@ describe("test SubMenu", () => {
     })
 
     // 测试SubMenu组件mode为vertical时的click功能
-    it("SubMenu mode vertical click", () => {
+    it("SubMenu mode vertical click", () => { 
         wrapper = render(mockMenu(testVerProps));
         wrapper.container.append(cssFile());   // 填充css文件
         activeEl = wrapper.getByText("menuItem1");
-        disabledEl = wrapper.getByText("dropdown3");  // 状态为disabled的组件
         dropdownEl = wrapper.getByText("dropdown");
         const menuEl = wrapper.getByTestId("test-menu");
+
         expect(menuEl).toHaveClass("menu-vertical");
-        expect(wrapper.getByText("dropdown1")).not.toBeVisible();
+
         // 点击dropdown，显示子组件
         fireEvent.click(dropdownEl);
         expect(wrapper.getByText("dropdown1")).toBeVisible();
@@ -157,6 +155,7 @@ describe("test SubMenu", () => {
         expect(activeEl).not.toHaveClass("is-active");
         expect(wrapper.getByText("dropdown1")).toHaveClass("is-active");
 
+        disabledEl = wrapper.getByText("dropdown3");  // 状态为disabled的组件
         // 看disabled的组件是否显示is-disabled的class类名
         expect(disabledEl).toHaveClass("is-disabled");
 

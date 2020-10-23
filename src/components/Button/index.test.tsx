@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Button,{ ButtonType, ButtonSize } from "./index";
+import Button from "./index";
 
 describe("test Button component",()=>{
     // 测试默认属性的组件
@@ -13,14 +13,8 @@ describe("test Button component",()=>{
     })
     // 根据不同的参数
     it("different props",()=>{
-        const wrapper = render(<Button btnType={ButtonType.Primary} size={ButtonSize.Large}>good</Button>)
+        const wrapper = render(<Button btnType="primary" size="lg">good</Button>)
         const el = wrapper.getByText("good");
-        expect(el).toHaveClass(`btn ${"btn-"+ButtonType.Primary} ${"btn-"+ButtonSize.Large}`);
-    })
-    // 绑定事件
-    it("bind events",()=>{
-        const wrapper = render(<Button onClick={()=>console.log("ok")}>events</Button>);
-        const el = wrapper.getByText("events");
-        
+        expect(el).toHaveClass(`btn btn-primary btn-lg`);
     })
 })
