@@ -1,59 +1,73 @@
 import React from 'react';
+import { HashRouter as Router, Route } from "react-router-dom";
 import './App.scss';
-import Button from "../../components/Button";
 import Menu from "../../components/Menu";
+import MenuGroup from "../../components/Menu/MenuGroup";
 import MenuItem from "../../components/Menu/MenuItem";
 import SubMenu from "../../components/Menu/SubMenu";
-import Icon from "../../components/Icon";
+import IndexContent from "../IndexContent";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas);
 
+const logo = require("../../assets/images/logo.png");
+const githubSvg = require("../../assets/images/github-brands.svg");
 
 function App() {
   return (
-    <div className="App">
-      <Icon icon="coffee" theme="primary" size="3x" />
-      <div className="btn-wrap">
-        <Button btnType="default">default</Button>
-        <Button btnType="primary">primary</Button>
-        <Button btnType="warning">warnning</Button>
-        <Button btnType="danger" disabled>danger</Button>
-        <Button btnType="danger">danger</Button>
-        <Button btnType="primary" size="lg">primary large</Button>
-        <Button btnType="primary" size="sm">primary small</Button>
-        <Button btnType="link">danger</Button>
-        <Button btnType="link" href="www.blogwxb.cn" disabled>primary</Button>
-        <Button btnType="link" size="lg" href="www.blogwxb.cn">primary large</Button>
-        <Button btnType="link" size="sm" href="www.blogwxb.cn">primary small</Button>
-
-      </div>
-      <Menu mode="vertical">
-        <MenuItem>
-          子组件1
-        </MenuItem>
-        <MenuItem disabled>
-          子组件2
-        </MenuItem>
-        <MenuItem>
-          子组件3
-        </MenuItem>
-        <SubMenu title="下拉菜单">
-          <MenuItem disabled>
-            选项1
-          </MenuItem>
-          <MenuItem>
-            选项2
-          </MenuItem>
-          <MenuItem>
-            选项3
-          </MenuItem>
-          <MenuItem>
-            选项4
-          </MenuItem>
-        </SubMenu>
-      </Menu>
-    </div>
+    <Router>
+      <Route path="/">
+        <div className="App">
+          <header className="header">
+            <div className="header-left">
+              <img src={logo} alt="logo" className="logo" />
+              <span className="title">Panda-ui</span>
+            </div>
+            <div className="header-right">
+              <a href="https://github.com/dearDreamWeb/panda-ui.github.io" target="_blank" rel="noopener noreferrer">
+                <img src={githubSvg} alt="githubSvg" className="githubSvg" />
+              </a>
+            </div>
+          </header>
+          <main className="container">
+            {/* 左侧导航栏 */}
+            <aside className="aside">
+              <Menu mode="vertical">
+                <MenuItem>
+                  子组件1
+              </MenuItem>
+                <MenuItem disabled>
+                  子组件2
+              </MenuItem>
+                <MenuItem>
+                  子组件3
+            </MenuItem>
+                <MenuGroup title="分组">
+                  <MenuItem>分组一</MenuItem>
+                  <MenuItem>分组二</MenuItem>
+                </MenuGroup>
+                <SubMenu title="下拉菜单">
+                  <MenuItem disabled>
+                    选项1
+              </MenuItem>
+                  <MenuItem>
+                    选项2
+              </MenuItem>
+                  <MenuGroup title="分组">
+                    <MenuItem>分组一</MenuItem>
+                    <MenuItem>分组二</MenuItem>
+                  </MenuGroup>
+                </SubMenu>
+              </Menu>
+            </aside>
+            {/* 右侧内容区 */}
+            <section className="main">
+              <IndexContent />
+            </section>
+          </main>
+        </div>
+      </Route>
+    </Router>
   );
 }
 

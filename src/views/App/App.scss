@@ -1,4 +1,40 @@
-.btn-wrap{
+@import "../../styles/index.scss";
+.App {
+  .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding: 0 50px;
+    height: 60px;
+    box-shadow: 0 2px 8px $gray-200;
+    .header-left {
+      display: flex;
+      align-items: center;
+      .logo {
+        width: 40px;
+        height: 40px;
+      }
+      .title {
+        padding-left: 20px;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+      }
+    }
+    .header-right {
+      .githubSvg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  .container {
+    display: flex;
+    .aside {
+      padding-top: 50px;
+      width: 300px;
+    }
+    .main {
+      padding: 50px 100px;
+    }
+  }
 }

@@ -4,7 +4,7 @@
   flex-wrap: nowrap;
   padding-left: 0;
   list-style: none;
-  box-shadow: $menu-box-shadow;
+  font-size: 14px;
   // menuItem的基础样式
   .menu-item {
     cursor: pointer;
@@ -18,6 +18,7 @@
       cursor: not-allowed;
     }
   }
+  // SubMenu组件
   .submenu-title {
     // 图标位置
     .arrow-down {
@@ -25,19 +26,43 @@
       transition: transform 0.4s linear;
     }
   }
+  // MenuGroup组件的样式
+  .pa-menu-group {
+    .pa-menu-group-title {
+      padding: $menu-item-padding-y 0 0 2rem;
+      font-size: $font-size-xs;
+      color: $gray-300;
+    }
+    .pa-menu-group-item {
+      text-indent: 1rem;
+    }
+  }
 
   //   mode为horizontal时样式
   &.menu-horizontal {
     margin-bottom: 30px;
     border-bottom: $menu-border-width solid $menu-border-color;
+    height: auto;
     .menu-item {
       margin: $menu-item-margin-y $menu-item-margin-x;
       padding: $menu-item-padding-y $menu-item-padding-x;
-      &.is-active,
+      white-space: nowrap;
       &:hover {
         color: $menu-item-active-color;
-        border-bottom: $menu-item-active-border-width solid
-          $menu-item-active-color;
+      }
+      // 被选中样式
+      &.is-active {
+        position: relative;
+        color: $menu-item-active-color;
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          width: 100%;
+          height: $menu-item-active-border-width;
+          content: "";
+          background-color: $menu-item-active-color;
+        }
       }
       &.is-disabled {
         color: $menu-item-disabled-color !important;
@@ -50,6 +75,7 @@
       padding: $menu-item-padding-y $menu-item-padding-x;
       cursor: pointer;
       .submenu-title {
+        white-space: nowrap;
         &:hover {
           // 图标旋转
           .arrow-down {
@@ -57,8 +83,10 @@
           }
         }
       }
-      &.is-active,
       &:hover {
+        color: $menu-item-active-color;
+      }
+      &.is-active {
         color: $menu-item-active-color;
         border-bottom: $menu-item-active-border-width solid
           $menu-item-active-color;
@@ -67,60 +95,81 @@
       .pa-submenu {
         position: absolute;
         margin-top: 1rem;
-        left: -$submenu-padding-x;
-        padding: $submenu-padding-y $submenu-padding-x;
-        text-align: center;
-        width: 100%;
+        padding: 0;
+        min-width: 100%;
+        max-width: 150%;
         background-color: $white;
         box-shadow: $submenu-box-shadow;
         box-sizing: content-box;
+        overflow: hidden;
         .menu-item {
           list-style: none;
           margin: 0;
-          padding: $submenu-padding-y 0;
+          padding: $submenu-padding-y $submenu-padding-x;
           color: $black;
           border-bottom: none;
           white-space: nowrap;
-          &.is-active,
           &:hover {
             color: $menu-item-active-color;
           }
+          &.is-active {
+            color: $menu-item-active-color;
+            background-color: $blue-lighter;
+            &::after {
+              display: none;
+            }
+          }
           &.is-disabled {
             color: $menu-item-disabled-color;
-            // pointer-events: none;
             cursor: not-allowed;
+          }
+        }
+
+        // MenuGroup组件的样式
+        .pa-menu-group {
+          .pa-menu-group-title {
+            padding: $submenu-padding-y $submenu-padding-x;
           }
         }
       }
     }
   }
+
   //   mode为vertical时样式
   &.menu-vertical {
     flex-direction: column;
+    border-right: $menu-item-border-width solid $menu-border-color;
+    // MenuItem组件
     .menu-item {
-      margin: $menu-item-margin-y $menu-item-margin-x;
-      padding: $menu-item-padding-y;
-      border-left: $menu-item-active-border-width solid $menu-border-color;
-      &.is-active,
+      width: calc(100% + 1.5px);
+      padding: $menu-item-padding-y 2rem;
+      white-space: nowrap;
+
       &:hover {
         color: $menu-item-active-color;
-        border-left: $menu-item-active-border-width solid
-          $menu-item-active-color;
+      }
+      &.is-active {
+        position: relative;
+        color: $menu-item-active-color;
+        background-color: $blue-lighter;
+        &::after {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: $menu-item-active-border-width;
+          height: 100%;
+          content: "";
+          background-color: $menu-item-active-color;
+          @include animation-border-zoom;
+        }
+      }
+      &.is-disabled {
+        color: $menu-item-disabled-color !important;
       }
     }
     // SubMenu组件下的样式
     .submenu-item {
       cursor: pointer;
-      margin: $menu-item-margin-y $menu-item-margin-x;
-      padding: $menu-item-padding-y;
-      border-left: $menu-item-active-border-width solid $menu-border-color;
-      &.is-active {
-        border-left: $menu-item-active-border-width solid
-          $menu-item-active-color;
-      }
-      &.is-disabled {
-        border-left: $menu-item-active-border-width solid $menu-border-color;
-      }
       &.is-opened {
         // 图标旋转
         .arrow-down {
@@ -128,18 +177,27 @@
         }
       }
       .submenu-title {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        padding: $menu-item-padding-y 0 0 2rem;
         &:hover {
           color: $menu-item-active-color;
         }
       }
       .pa-submenu {
-        padding-left: $menu-item-padding-x;
+        padding-left: 0;
         .menu-item {
+          margin: 0;
+          padding: $menu-item-padding-y 2rem;
           list-style: none;
           color: $black;
-          border-left: none;
-          &.is-active,
+          border-right: none;
           &:hover {
+            color: $menu-item-active-color;
+          }
+          &.is-active {
             color: $menu-item-active-color;
           }
           &.is-disabled {

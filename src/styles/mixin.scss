@@ -61,3 +61,16 @@
     transform-origin: $origin;
   }
 }
+
+// Menu菜单MenuItem的伪类after动画
+@mixin animation-border-zoom {
+  animation: animation 0.2s ease-in-out;
+  @keyframes animation {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+}

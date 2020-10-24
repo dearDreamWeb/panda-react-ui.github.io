@@ -30,19 +30,6 @@ export const MenuContext = createContext<IMenuContext>({ index: "0" })
 type AllMenuProps = MenuProps & React.HTMLAttributes<HTMLElement>;
 
 
-// 渲染子组件
-const renderChildren = (children: any) => {
-    return React.Children.map(children, (child, index) => {
-        const childEl = child as React.FunctionComponentElement<MenuItemProps>;
-        const { displayName } = childEl.type;
-        if (displayName === "MenuItem" || displayName === "SubMenu") {
-            // 克隆一个childEl元素，添加参数index
-            return React.cloneElement(childEl, { index: index.toString() });
-        } else {
-            console.error("Warning: Menu has a child which is not a MenuItem component");
-        }
-    })
-}
 
 // Menu组件
 const Menu: React.FC<AllMenuProps> = props => {
@@ -51,6 +38,26 @@ const Menu: React.FC<AllMenuProps> = props => {
     const classes = classnames("pa-menu", className, {
         [`menu-${mode}`]: true
     })
+
+    // 渲染子组件
+    const renderChildren = () => {
+        return React.Children.map(children, (child, index) => {
+            const childEl = child as React.FunctionComponentElement<MenuItemProps>;
+            const { displayName } = childEl.type;
+            if (displayName === "MenuItem" || displayName === "SubMenu") {
+                // 克隆一个childEl元素，添加参数index
+                return React.cloneElement(childEl, { index: index.toString() });
+            } else if (displayName === "MenuGroup" && mode === "vertical") {
+                // MenuGroup只存在于mode为vertical模式，或者SubMenu组件中
+                return React.cloneElement(childEl, { index: index.toString() });
+            }
+            else {
+                console.error("Warning: Menu has a child which is not a MenuItem component");
+            }
+        })
+    }
+
+
     // 点击事件回调
     const handleClick = (index: string) => {
         setActiveIndex(index);
@@ -68,7 +75,7 @@ const Menu: React.FC<AllMenuProps> = props => {
     return (
         <ul className={classes} style={style} {...restProps} data-testid="test-menu">
             <MenuContext.Provider value={passedContext}>
-                {renderChildren(children)}
+                {renderChildren()}
             </MenuContext.Provider>
         </ul>
     )

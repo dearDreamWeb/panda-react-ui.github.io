@@ -1,4 +1,4 @@
-import React, { useState, useContext, FunctionComponentElement } from "react";
+import React, { useState, useContext } from "react";
 import classnames from "classnames";
 import { MenuContext } from "./index";
 import { MenuItemProps } from "./MenuItem";
@@ -22,21 +22,21 @@ const SubMenu: React.FC<allSubMenuProps> = props => {
     const defaultOpenKeys = context.defaultOpenKeys as Array<string>; // 获取默认打开的菜单的数组
     // 只有在mode为vertical时才使用默认打开功能，判断初始化时是否打开
     const isOpen = (index && context.mode === "vertical") ? defaultOpenKeys.includes(index) : false;
-    const [openSubMenu, setOpenSubMenu] = useState(isOpen);  // SubMenu是否打开
+    const [openSubMenu, setOpenSubMenu] = useState(isOpen);   // SubMenu是否打开
     // submenItem的class
     const classes = classnames("submenu-item", className, {
         "is-active": context.index.split("-")[0] === index,
         "is-opened": openSubMenu  // 是否展开
     })
     // subMenu的class
-    const subMenuClasses = classnames("pa-submenu", {
-        "open-submenu": openSubMenu
-    })
+    const subMenuClasses = classnames("pa-submenu");
+
     // 渲染SubMenu的子组件
     const renderChildren = () => {
         const childrenComponent = React.Children.map(children, (child, i) => {
             const childEl = child as React.FunctionComponentElement<MenuItemProps>;
-            if (childEl.type.displayName === "MenuItem") {
+            const displayName = childEl.type.displayName;
+            if (displayName === "MenuItem" || displayName === "MenuGroup") {
                 return React.cloneElement(childEl, { index: `${index}-${i + 1}` });
             } else {
                 console.error("Warning: SubMenu has a child which is not a MenuItem component");
@@ -47,7 +47,7 @@ const SubMenu: React.FC<allSubMenuProps> = props => {
                 in={openSubMenu}
                 timeout={300}
                 animation="slide-in-top"
-            > 
+            >
                 <ul className={subMenuClasses} {...restProps}>
                     {childrenComponent}
                 </ul>
