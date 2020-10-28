@@ -1,14 +1,14 @@
 import React from "react";
 import classnames from "classnames";
-import { MenuItemProps } from "./MenuItem";
+import { AllMenuItemProps } from "./MenuItem";
 
-export interface MenuGroupProps {
+interface MenuGroupProps {
     index?: string;
     title: string;
     className?: string;
 }
 
-type allMenuGroupProps = MenuGroupProps & React.HTMLAttributes<HTMLElement>;
+export type allMenuGroupProps = MenuGroupProps & React.HTMLAttributes<HTMLElement>;
 
 const MenuGroup: React.FC<allMenuGroupProps> = props => {
     const { index, title, className, children, ...restProps } = props;
@@ -16,7 +16,7 @@ const MenuGroup: React.FC<allMenuGroupProps> = props => {
 
     const renderChildren = () => {
         return React.Children.map(children, (child, i) => {
-            const childEl = child as React.FunctionComponentElement<MenuItemProps>;
+            const childEl = child as React.FunctionComponentElement<AllMenuItemProps>;
             if (childEl.type.displayName === "MenuItem") {
                 return React.cloneElement(childEl, { index: `${index}-${i + 1}`, className: "pa-menu-group-item" });
             } else {

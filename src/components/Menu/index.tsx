@@ -2,7 +2,10 @@ import React, { useState, createContext } from "react";
 import "./index.scss";
 import classnames from "classnames";
 import MenuItem from "./MenuItem";
-import { MenuItemProps } from "./MenuItem";
+import { AllMenuItemProps } from "./MenuItem";
+import SubMenu, { allSubMenuProps } from "./SubMenu";
+import MenuGroup, { allMenuGroupProps } from "./MenuGroup";
+
 
 type MenuMode = "horizontal" | "vertical";
 type SelectCallback = (selectIndex: string) => void;
@@ -42,8 +45,8 @@ const Menu: React.FC<AllMenuProps> = props => {
     // 渲染子组件
     const renderChildren = () => {
         return React.Children.map(children, (child, index) => {
-            const childEl = child as React.FunctionComponentElement<MenuItemProps>;
-            const { displayName } = childEl.type;
+            const childEl = child as React.FunctionComponentElement<AllMenuItemProps>;
+            const { displayName } = childEl.type ? childEl.type : { displayName: "" };
             if (displayName === "MenuItem" || displayName === "SubMenu") {
                 // 克隆一个childEl元素，添加参数index
                 return React.cloneElement(childEl, { index: index.toString() });
@@ -89,4 +92,15 @@ Menu.defaultProps = {
     defaultOpenKeys: [],
     mode: "horizontal"
 }
-export default Menu;
+
+// 把SubMenu组件、MenuItem组件、MenuGroup组件变成Menu.Item等形式
+type ItemMenuComponent = React.FC<AllMenuProps> & {
+    Item: React.FC<AllMenuItemProps>,
+    SubMenu: React.FC<allSubMenuProps>,
+    Group: React.FC<allMenuGroupProps>
+}
+const TransMenu = Menu as ItemMenuComponent;
+TransMenu.Item = MenuItem;
+TransMenu.SubMenu = SubMenu;
+TransMenu.Group = MenuGroup;
+export default TransMenu;

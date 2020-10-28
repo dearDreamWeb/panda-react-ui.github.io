@@ -1,0 +1,12 @@
+@import "../../styles/index.scss";
+.index-content {
+  .introduce {
+    padding: 1.5rem 0;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+    color: $gray-700;
+    .href {
+      padding-right: 0.5rem;
+    }
+  }
+}

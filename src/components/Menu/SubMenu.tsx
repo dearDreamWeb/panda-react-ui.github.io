@@ -1,20 +1,20 @@
 import React, { useState, useContext } from "react";
 import classnames from "classnames";
 import { MenuContext } from "./index";
-import { MenuItemProps } from "./MenuItem";
+import { AllMenuItemProps } from "./MenuItem";
 import Icon from "../Icon";
 import Transition from "../../components/Transition";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas);
 
-export interface SubMenuProps {
+interface SubMenuProps {
     index?: string;
     title: string;
     className?: string;
 }
 
-type allSubMenuProps = SubMenuProps & React.HTMLAttributes<HTMLElement>;
+export type allSubMenuProps = SubMenuProps & React.HTMLAttributes<HTMLElement>;
 
 const SubMenu: React.FC<allSubMenuProps> = props => {
     const { index, title, className, children, ...restProps } = props;
@@ -34,7 +34,7 @@ const SubMenu: React.FC<allSubMenuProps> = props => {
     // 渲染SubMenu的子组件
     const renderChildren = () => {
         const childrenComponent = React.Children.map(children, (child, i) => {
-            const childEl = child as React.FunctionComponentElement<MenuItemProps>;
+            const childEl = child as React.FunctionComponentElement<AllMenuItemProps>;
             const displayName = childEl.type.displayName;
             if (displayName === "MenuItem" || displayName === "MenuGroup") {
                 return React.cloneElement(childEl, { index: `${index}-${i + 1}` });

@@ -32,6 +32,17 @@
     .aside {
       padding-top: 50px;
       width: 300px;
+      height: calc(100vh - 60px);
+      .pa-menu {
+        height: 100%;
+        a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          color: inherit;
+          text-decoration: none;
+        }
+      }
     }
     .main {
       padding: 50px 100px;

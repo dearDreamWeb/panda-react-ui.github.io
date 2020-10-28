@@ -3,14 +3,14 @@ import classnames from "classnames";
 import { MenuContext } from "./index";
 
 // MenuItem的参数
-export interface MenuItemProps {
+interface MenuItemProps {
     index?: string;
     disabled?: boolean;
     className?: string;
     style?: React.CSSProperties;
     children?: React.ReactNode;
 }
-type AllMenuItemProps = MenuItemProps & React.HTMLAttributes<HTMLElement>;
+export type AllMenuItemProps = MenuItemProps & React.HTMLAttributes<HTMLElement>;
 const MenuItem: React.FC<AllMenuItemProps> = props => {
     const { index, disabled, className, style, children, ...restProps } = props;
     const context = useContext(MenuContext);
