@@ -74,3 +74,31 @@
     }
   }
 }
+
+// Divider分割线的文本位置
+@mixin divider-origin($direction: "center") {
+  $left-width: 50%;
+  $right-width: 50%;
+  @if ($direction == "left") {
+    $left-width: 5%;
+    $right-width: 95%;
+  } @else if($direction == "center") {
+    $left-width: 50%;
+    $right-width: 50%;
+  } @else {
+    $left-width: 95%;
+    $right-width: 5%;
+  }
+  &::before {
+    content: "";
+    margin-right: 1rem;
+    width: $left-width;
+    border-top: 1px solid $gray-200;
+  }
+  &::after {
+    content: "";
+    margin-left: 1rem;
+    width: $right-width;
+    border-top: 1px solid $gray-200;
+  }
+}

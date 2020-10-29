@@ -1,0 +1,35 @@
+@import "../../styles/index.scss";
+.pa-divider {
+  &.pa-divider-horizontal {
+    margin: 1.5rem 0;
+    width: 100%;
+    min-width: 100%;
+    height: 1px;
+    border-top: 1px solid $gray-200;
+    &.pa-ischildren {
+      border-top: none;
+      .pa-divider-inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        white-space: nowrap;
+        &.pa-divider-left {
+          @include divider-origin("left");
+        }
+        &.pa-divider-center {
+          @include divider-origin("center");
+        }
+        &.pa-divider-right {
+          @include divider-origin("right");
+        }
+      }
+    }
+  }
+  &.pa-divider-vertical {
+    margin: 0 1.5rem;
+    height: 100px;
+    min-height: 100%;
+    width: 1px;
+    border-right: 1px solid $gray-200;
+  }
+}

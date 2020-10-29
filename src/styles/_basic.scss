@@ -1,12 +1,12 @@
 // 白到黑
 $white: #fff !default;
 $gray-100: #f8f8ff !default;
-$gray-200: #e0e0e0 !default;
-$gray-300: #adadad !default;
-$gray-400: #8e8e8e !default;
-$gray-500: #7b7b7b !default;
-$gray-600: #6c6c6c !default;
-$gray-700: #050404 !default;
+$gray-200: #ececec !default;
+$gray-300: #e0e0e0 !default;
+$gray-400: #adadad !default;
+$gray-500: #8e8e8e !default;
+$gray-600: #7b7b7b !default;
+$gray-700: #6c6c6c !default;
 $gray-800: #3c3c3c !default;
 $gray-900: #272727 !default;
 $black: #000 !default;
@@ -84,7 +84,7 @@ $body-text-align: null !default;
 * 边框样式
 */
 $border-width: 1px !default;
-$border-color: gray-300 !default;
+$border-color: $gray-400 !default;
 $border-radius: 0.25rem !default;
 $border-radius-lg: 0.3rem !default;
 $border-radius-sm: 0.2rem !default;
@@ -107,7 +107,7 @@ $btn-transition: all 0.15s ease-in-out;
 // 链接按钮
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
-$btn-link-disabled-color: $gray-600 !default;
+$btn-link-disabled-color: $gray-700 !default;
 
 // 禁用样式
 $btn-disabled-opacity: 0.65 !default;
@@ -132,7 +132,7 @@ $btn-border-radius-sm: $border-radius-sm !default;
 */
 // menu
 $menu-border-width: $border-width !default;
-$menu-border-color: $gray-200 !default;
+$menu-border-color: $gray-300 !default;
 $menu-transition: all 0.15s ease-in-out !default;
 
 // menu-item
@@ -143,13 +143,13 @@ $menu-item-margin-x: 1rem !default;
 $menu-item-active-color: $primary !default;
 $menu-item-border-width: 1px !default;
 $menu-item-active-border-width: 3px !default;
-$menu-item-disabled-color: $gray-300 !default;
+$menu-item-disabled-color: $gray-400 !default;
 
 // pa-submenu
 $submenu-padding-y: 0.25rem !default;
 $submenu-padding-x: 1.25rem !default;
 $submenu-border-radius: 3px !default;
-$submenu-box-shadow: 0 0 2px $gray-500;
+$submenu-box-shadow: 0 0 2px $gray-600;
 $submenu-menu-item-padding-y: $menu-item-padding-y !default;
 $submenu-menu-item-padding-x: 0.125rem !default;
 $submenu-menu-item-text-indent: 1rem !default;
