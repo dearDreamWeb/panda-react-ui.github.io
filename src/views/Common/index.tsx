@@ -1,5 +1,10 @@
 import React from 'react';
 import './index.scss';
+import ReactMarkdown from "./ReactMarkdown";
+import Example from "./Example";
+
+export { ReactMarkdown };
+export { Example };
 
 interface CommonBaseProps {
     title: string,

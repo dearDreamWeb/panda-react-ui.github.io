@@ -6,3 +6,45 @@
   font-weight: $font-weight-light;
   color: $gray-700;
 }
+
+// 例子部分的样式
+.example-box {
+  padding-top: 2rem;
+  border: $border-width solid $gray-300;
+  border-radius: $border-radius;
+  .examp-box-header {
+    padding: 0 1.5rem;
+  }
+  .icon{
+    padding-left: 0.5rem;
+    color: $gray-400;
+  }
+}
+
+// markdown的样式
+.code-example-box {
+  .cod-descript-conetent {
+    display: flex;
+    justify-content: space-between;
+    font-size: $font-size-base;
+    padding: 1rem 1.5rem;
+    .icon-show {
+      // font-weight: $font-weight-normal !important;
+      color: $gray-500;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        color: $gray-900;
+      }
+    }
+  }
+  .pa-markdown {
+    pre {
+      margin: 0 !important;
+      code {
+        font-size: 1rem !important;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}

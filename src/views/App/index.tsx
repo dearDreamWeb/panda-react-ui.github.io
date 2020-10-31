@@ -40,6 +40,15 @@ const menuList: Array<menuListProps> = [
     ]
   },
   {
+    title: "布局",
+    children: [
+      {
+        title: "Divider 分割线",
+        path: "/"
+      },
+    ]
+  },
+  {
     title: "导航",
     children: [
       {

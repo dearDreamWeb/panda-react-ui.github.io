@@ -22,9 +22,7 @@
   }
   &:focus,
   &.focus {
-    background: $hover-background-color;
-    border-color: $hover-border-color;
-    color: $hover-color;
+    outline: none;
   }
   &:disabled,
   &.disabled {
