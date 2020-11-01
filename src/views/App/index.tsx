@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import './App.scss';
 import Menu from "../../components/Menu";
@@ -31,7 +31,7 @@ const menuList: Array<menuListProps> = [
     children: [
       {
         title: "Button 按钮",
-        path: "/"
+        path: "/button"
       },
       {
         title: "Icon 图标",
@@ -59,7 +59,42 @@ const menuList: Array<menuListProps> = [
   }
 ]
 
+// 遍历找到初始的路由对应导航的坐标
+const initIndex = (): string => {
+  let resultIndex: string = "0";
+  menuList.forEach((item, itemIndex) => {
+    if (item.path === window.location.hash.slice(1)) {
+      return resultIndex = itemIndex.toString();
+    }
+    if (item.children) {
+      item.children.forEach((child, childIndex) => {
+        if (child.path === window.location.hash.slice(1)) {
+          return resultIndex = `${itemIndex.toString()}-${(childIndex + 1).toString()}`;
+        }
+      })
+    }
+  })
+  return resultIndex;
+}
+
 function App() {
+  const aside = useRef<HTMLElement>(null);
+  useEffect(() => {
+    changeAsideH();
+  }, [])
+
+  // 根据窗口的大小来改变左侧导航栏的高度
+  const changeAsideH = () => {
+    let timer: number;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        let asideRef = aside.current as HTMLElement;
+        asideRef.style.height = "calc(100vh - 60px)";
+      }, 500)
+    })
+  }
+
   return (
     <Router>
       <Route path="/">
@@ -77,8 +112,8 @@ function App() {
           </header>
           <main className="container">
             {/* 左侧导航栏 */}
-            <aside className="aside">
-              <Menu mode="vertical">
+            <aside className="aside" ref={aside}>
+              <Menu mode="vertical" defaultIndex={initIndex()}>
                 {
                   menuList.map((item, index) => {
                     if (item.children) {

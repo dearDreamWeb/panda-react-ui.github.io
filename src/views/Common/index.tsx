@@ -2,9 +2,9 @@ import React from 'react';
 import './index.scss';
 import ReactMarkdown from "./ReactMarkdown";
 import Example from "./Example";
+import ApiProps from "./ApiProps";
 
-export { ReactMarkdown };
-export { Example };
+export { ReactMarkdown, Example, ApiProps };
 
 interface CommonBaseProps {
     title: string,

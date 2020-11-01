@@ -33,6 +33,16 @@
       padding-top: 50px;
       width: 300px;
       height: calc(100vh - 60px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &:hover {
+        &::-webkit-scrollbar {
+          display: block;
+        }
+      }
       .pa-menu {
         height: 100%;
         a {
@@ -47,6 +57,9 @@
     .main {
       padding: 50px 100px;
       width: 100%;
+      height: calc(100vh - 60px);
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   }
 }
