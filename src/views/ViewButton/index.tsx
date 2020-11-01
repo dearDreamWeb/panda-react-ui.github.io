@@ -85,11 +85,12 @@ const ViewButton: React.FC<HTMLElement> = () => {
                         <Button size="sm">小型按钮</Button>
                     </div>
                 </Example>
-
-                <Common title="API" >
-                    <ApiProps childrenData={propsData} />
-                </Common>
             </Common>
+            
+            <Common title="API" >
+                <ApiProps childrenData={propsData} />
+            </Common>
+
         </>
     )
 }

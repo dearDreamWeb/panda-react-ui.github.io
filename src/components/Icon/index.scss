@@ -1,7 +1,11 @@
 @import "../../styles/index.scss";
 
-@each $key, $val in $theme-colors {
-  .icon-#{$key} {
-    color: $val;
+.pa-icon {
+  color: inherit;
+  @each $key, $val in $theme-colors {
+    &.icon-#{$key} {
+      color: $val;
+    }
   }
 }
+

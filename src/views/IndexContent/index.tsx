@@ -4,10 +4,7 @@ import './index.scss';
 import Introduce from "../Introduce";
 import UseStart from "../UseStart";
 import ViewButton from "../ViewButton";
-// import Divider from "../../components/Divider";
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { fas } from '@fortawesome/free-solid-svg-icons'
-// library.add(fas);
+import ViewIcon from "../ViewIcon";
 
 
 const IndexContent: React.FC = () => {
@@ -17,6 +14,7 @@ const IndexContent: React.FC = () => {
                 <Route exact path="/" component={Introduce} />
                 <Route path="/use" component={UseStart} />
                 <Route path="/button" component={ViewButton} />
+                <Route path="/icon" component={ViewIcon} />
             </Switch>
         </div>
     )

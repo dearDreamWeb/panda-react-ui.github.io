@@ -30,12 +30,12 @@ const menuList: Array<menuListProps> = [
     title: "通用",
     children: [
       {
-        title: "Button 按钮",
-        path: "/button"
+        title: "Icon 图标",
+        path: "/icon"
       },
       {
-        title: "Icon 图标",
-        path: "/"
+        title: "Button 按钮",
+        path: "/button"
       },
     ]
   },

@@ -2,9 +2,6 @@ import React from "react";
 import ReactMarkdown from "./ReactMarkdown";
 import Divider from "../../components/Divider";
 import Icon from "../../components/Icon";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-library.add(faEdit);
 
 interface ExampleCodeProps extends React.HTMLAttributes<HTMLElement> {
     title: string,
@@ -22,7 +19,7 @@ const ExampleCode: React.FC<ExampleCodeProps> = (props) => {
             <Divider origin="left">
                 <div>
                     {title}
-                    <Icon icon={faEdit} className="icon" />
+                    <Icon icon="edit" className="icon" />
                 </div>
             </Divider>
             <ReactMarkdown codeDescription={codeDescription} codeContent={codeContent} />

@@ -1,0 +1,32 @@
+@import "../../styles/index.scss";
+.view-icon {
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    .icon-wrapper-item {
+      font-size: 1.5rem;
+    }
+    & > * {
+      margin-right: 1.5rem;
+    }
+  }
+  .icon-all {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    .icon-all-item {
+      padding: 2rem 0;
+      text-align: center;
+      border: 1px solid $gray-200;
+      color: $gray-500;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $primary;
+      }
+      .icon-all-item-icon {
+        padding-bottom: 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}

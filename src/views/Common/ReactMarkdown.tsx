@@ -4,9 +4,6 @@ import Transition from "../../components/Transition";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Icon from "../../components/Icon";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons'
-library.add(faExpandArrowsAlt);
 
 interface MarkdowunProps {
     codeContent: string,  // 代码内容
@@ -29,13 +26,13 @@ const ReactMarkdown = (props: MarkdowunProps) => {
             return <SyntaxHighlighter style={vscDarkPlus} language={codeProps.language} children={codeProps.value} />
         }
     }
-    
+
 
     return (
         <div className="code-example-box">
             <p className="cod-descript-conetent">
-                <span>{codeDescription}</span>
-                <Icon icon={faExpandArrowsAlt} className="icon-show" title={open ? "隐藏代码" : "显示代码"}
+                <span>{codeDescription}</span> 
+                <Icon icon="expand-arrows-alt" className="icon-show" title={open ? "隐藏代码" : "显示代码"}
                     onClick={() => setOpen(!open)}
                 />
             </p>
