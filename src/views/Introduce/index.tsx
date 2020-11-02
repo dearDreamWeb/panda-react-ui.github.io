@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import Common from "../Common"
+import Common from "../Common";
 
 const Introduce: React.FC<HTMLElement> = () => {
     return (

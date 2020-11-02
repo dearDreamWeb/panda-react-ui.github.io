@@ -45,12 +45,24 @@
       }
       .pa-menu {
         height: 100%;
-        a {
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          color: inherit;
-          text-decoration: none;
+        .menu-item {
+          position: relative;
+          a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+            &::after {
+              content: "";
+              display: block;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
         }
       }
     }

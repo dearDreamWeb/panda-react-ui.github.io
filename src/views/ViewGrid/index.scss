@@ -1,0 +1,31 @@
+@import "../../styles/index.scss";
+.view-grid {
+  .row {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $white;
+    & :nth-child(n) {
+      padding: 1rem 0;
+      background-color: lighten($primary, 10%);
+    }
+    & :nth-child(2n) {
+      background-color: lighten($primary, 5%);
+    }
+  }
+  .row-gutter {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $white;
+    & :nth-child(n) {
+      .col-item {
+        padding: 1rem 0;
+        background-color: lighten($primary, 10%);
+      }
+    }
+    & :nth-child(2n) {
+      .col-item {
+        background-color: lighten($primary, 5%);
+      }
+    }
+  }
+}

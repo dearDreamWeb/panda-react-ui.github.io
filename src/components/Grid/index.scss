@@ -1,0 +1,73 @@
+@import "../../styles/index.scss";
+.pa-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  .pa-col {
+    width: 100%;
+    @each $key, $val in $col-span {
+      &.col-span-#{$key} {
+        width: calc(#{$key} / 24 * 100%);
+      }
+
+      &.col-offset-#{$key} {
+        margin-left: calc(#{$key} / 24 * 100%);
+      }
+    }
+  }
+
+  // xs
+  @media screen and (max-width: 575px) {
+    .pa-col {
+      @each $key, $val in $col-span {
+        &.col-xs-#{$key} {
+          width: calc(#{$key} / 24 * 100%);
+        }
+      }
+    }
+  }
+
+  // sm
+  @media screen and (min-width: 576px) {
+    .pa-col {
+      @each $key, $val in $col-span {
+        &.col-sm-#{$key} {
+          width: calc(#{$key} / 24 * 100%);
+        }
+      }
+    }
+  }
+
+  // md
+  @media screen and (min-width: 768px) {
+    .pa-col {
+      @each $key, $val in $col-span {
+        &.col-md-#{$key} {
+          width: calc(#{$key} / 24 * 100%);
+        }
+      }
+    }
+  }
+
+  // lg
+  @media screen and (min-width: 992px) {
+    .pa-col {
+      @each $key, $val in $col-span {
+        &.col-lg-#{$key} {
+          width: calc(#{$key} / 24 * 100%);
+        }
+      }
+    }
+  }
+
+  // xl
+  @media screen and (min-width: 1200px) {
+    .pa-col {
+      @each $key, $val in $col-span {
+        &.col-xl-#{$key} {
+          width: calc(#{$key} / 24 * 100%);
+        }
+      }
+    }
+  }
+}

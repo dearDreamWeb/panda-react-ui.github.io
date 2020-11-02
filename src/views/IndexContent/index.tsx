@@ -7,6 +7,7 @@ import ViewButton from "../ViewButton";
 import ViewIcon from "../ViewIcon";
 import ViewDivider from "../ViewDivider";
 import ViewMenu from "../ViewMenu";
+import ViewGrid from "../ViewGrid";
 
 
 const IndexContent: React.FC = () => {
@@ -19,6 +20,7 @@ const IndexContent: React.FC = () => {
                 <Route path="/icon" component={ViewIcon} />
                 <Route path="/divider" component={ViewDivider} />
                 <Route path="/menu" component={ViewMenu} />
+                <Route path="/grid" component={ViewGrid} />
             </Switch>
         </div>
     )
