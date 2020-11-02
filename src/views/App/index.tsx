@@ -44,7 +44,7 @@ const menuList: Array<menuListProps> = [
     children: [
       {
         title: "Divider 分割线",
-        path: "/"
+        path: "/divider"
       },
     ]
   },
@@ -53,7 +53,7 @@ const menuList: Array<menuListProps> = [
     children: [
       {
         title: "Menu 菜单",
-        path: "/"
+        path: "/menu"
       }
     ]
   }

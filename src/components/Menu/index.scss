@@ -87,9 +87,17 @@
         color: $menu-item-active-color;
       }
       &.is-active {
+        position: relative;
         color: $menu-item-active-color;
-        border-bottom: $menu-item-active-border-width solid
-          $menu-item-active-color;
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          width: 100%;
+          height: $menu-item-active-border-width;
+          content: "";
+          background-color: $menu-item-active-color;
+        }
       }
 
       .pa-submenu {

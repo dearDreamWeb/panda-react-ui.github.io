@@ -5,6 +5,8 @@ import Introduce from "../Introduce";
 import UseStart from "../UseStart";
 import ViewButton from "../ViewButton";
 import ViewIcon from "../ViewIcon";
+import ViewDivider from "../ViewDivider";
+import ViewMenu from "../ViewMenu";
 
 
 const IndexContent: React.FC = () => {
@@ -15,6 +17,8 @@ const IndexContent: React.FC = () => {
                 <Route path="/use" component={UseStart} />
                 <Route path="/button" component={ViewButton} />
                 <Route path="/icon" component={ViewIcon} />
+                <Route path="/divider" component={ViewDivider} />
+                <Route path="/menu" component={ViewMenu} />
             </Switch>
         </div>
     )
