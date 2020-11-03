@@ -3,8 +3,6 @@ import "./index.scss";
 import classnames from "classnames";
 import Col, { ColProps } from "./Col";
 
-export { Col }
-
 interface RowProps extends React.HTMLAttributes<HTMLElement> {
     className?: string,
     gutter?: number,

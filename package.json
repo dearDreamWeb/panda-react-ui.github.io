@@ -1,7 +1,10 @@
 {
-  "name": "react_wheel",
+  "name": "panda-ui",
   "version": "0.1.0",
   "private": true,
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
@@ -28,11 +31,14 @@
     "react-syntax-highlighter": "^15.3.0",
     "react-transition-group": "^4.4.1",
     "remark-gfm": "^1.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "panda-ui": "0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build-ts && npm run build-css",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
