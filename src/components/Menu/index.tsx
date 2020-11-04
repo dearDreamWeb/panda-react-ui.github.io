@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import "./index.scss";
+// import "./index.scss";
 import classnames from "classnames";
 import MenuItem from "./MenuItem";
 import { AllMenuItemProps } from "./MenuItem";

@@ -1,7 +1,13 @@
-@import"./_basic.scss";
+@import "./_basic.scss";
 
 @import "./reboot";
 
 @import "./mixin.scss";
 
 @import "./animation.scss";
+
+@import "../components/Button/index.scss";
+@import "../components/Divider/index.scss";
+@import "../components/Grid/index.scss";
+@import "../components/Icon/index.scss";
+@import "../components/Menu/index.scss";

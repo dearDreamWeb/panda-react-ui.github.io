@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import "./index.scss";
+// import "./index.scss";
 
 export interface DividerProps extends React.HTMLAttributes<HTMLElement> {
     mode?: "horizontal" | "vertical",
