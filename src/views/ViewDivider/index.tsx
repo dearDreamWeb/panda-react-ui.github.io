@@ -11,7 +11,9 @@ const ViewDivider: React.FC<HTMLElement> = () => {
     ]
 
     const str = ` ~~~js
-    import { Divider } from "panda-ui";
+    import { Divider } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <div>
         如果只看到太阳的黑点，那你的生活将缺少温暖;如果你只看到月亮的阴影，那么你的生命历程将难以找到光明;
         如果你总是发现朋友的缺点，你么你的人生旅程将难以找到知音;
@@ -27,7 +29,9 @@ const ViewDivider: React.FC<HTMLElement> = () => {
     <Divider />`;
 
     const str1 = ` ~~~js
-    import { Divider } from "panda-ui";
+    import { Divider } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <div>
         无论从那里来的，只要是食物，壮健者大抵就无需思索，承认是吃的东西。
         惟有衰病的，却总常想到害胃，伤身，特有许多禁例，许多避忌;
@@ -46,7 +50,9 @@ const ViewDivider: React.FC<HTMLElement> = () => {
     <Divider origin="right">右边</Divider>`;
 
     const str2 = ` ~~~js
-    import { Divider } from "panda-ui";
+    import { Divider } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+    
     <div>
         左边
         <Divider mode="vertical" />

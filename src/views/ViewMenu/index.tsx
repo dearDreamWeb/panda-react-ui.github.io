@@ -39,7 +39,9 @@ const ViewMenu: React.FC<HTMLElement> = () => {
     ]
 
     const str = ` ~~~js
-    import { Menu } from "panda-ui";
+    import { Menu } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Menu>
         <Menu.Item>选项一</Menu.Item>
         <Menu.Item>选项二</Menu.Item>
@@ -55,7 +57,9 @@ const ViewMenu: React.FC<HTMLElement> = () => {
     </Menu>`;
 
     const str1 = ` ~~~js
-    import { Menu } from "panda-ui";
+    import { Menu } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+    
     <Menu mode="vertical" style={{ width: "200px", backgroundColor: "#f7f7f7" }}>
         <Menu.Item>选项一</Menu.Item>
         <Menu.Item>选项二</Menu.Item>

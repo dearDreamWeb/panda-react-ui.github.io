@@ -13,7 +13,9 @@ const ViewButton: React.FC<HTMLElement> = () => {
     ]
 
     const str = ` ~~~js
-    import { Button } from "panda-ui";
+    import { Button } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Button>默认按钮</Button>
     <Button btnType="primary">主要按钮</Button>
     <Button btnType="warning">警告按钮</Button>
@@ -22,7 +24,9 @@ const ViewButton: React.FC<HTMLElement> = () => {
     <Button btnType="link">Link</Button>`;
 
     const str1 = ` ~~~js
-    import { Button } from "panda-ui";
+    import { Button } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Button disabled>默认按钮</Button>
     <Button btnType="primary" disabled>主要按钮</Button>
     <Button btnType="warning" disabled>警告按钮</Button>
@@ -30,12 +34,16 @@ const ViewButton: React.FC<HTMLElement> = () => {
     <Button btnType="link" disabled>文字按钮</Button>`;
 
     const str2 = ` ~~~js
-    import { Button } from "panda-ui";
+    import { Button } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Button btnType="link">文字按钮</Button>
     <Button btnType="link" disabled>文字按钮</Button>`;
 
     const str3 = ` ~~~js
-    import { Button } from "panda-ui";
+    import { Button } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+    
     <Button size="lg">大型按钮</Button>
     <Button>默认按钮</Button>
     <Button size="sm">小型按钮</Button>`;

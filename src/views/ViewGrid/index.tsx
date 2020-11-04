@@ -27,7 +27,9 @@ const ViewGrid: React.FC<HTMLElement> = () => {
 
     // 第一个例子代码
     const str = ` ~~~js
-    import { Row } from "panda-ui";
+    import { Row } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Row>
         <Row.Col span={12}>Col-12</Row.Col>
         <Row.Col span={12}>Col-12</Row.Col>
@@ -46,7 +48,9 @@ const ViewGrid: React.FC<HTMLElement> = () => {
 
     // 第二个例子代码
     const str1 = ` ~~~js
-    import { Row } from "panda-ui";
+    import { Row } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+
     <Row>
         <Row.Col span={4}>Col-4</Row.Col>
         <Row.Col span={4} offset={4}>Col-4</Row.Col>
@@ -56,7 +60,8 @@ const ViewGrid: React.FC<HTMLElement> = () => {
 
     // 第三个例子代码
     const str2 = ` ~~~js
-    import { Row } from "panda-ui";
+    import { Row } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
 
     const style1 = { background: '#1bd3ef', padding: '1rem 0' };
     const style2 = { background: '#10c5e1', padding: '1rem 0' };
@@ -75,7 +80,9 @@ const ViewGrid: React.FC<HTMLElement> = () => {
 
     // 第四个例子代码
     const str3 = ` ~~~js
-    import { Row } from "panda-ui";
+    import { Row } from "panda-react-ui";
+    import "Panda-react-ui/dist/index.css";
+    
     <Row className="row">
         <Row.Col xs={24} sm={12} md={8} lg={6} xl={3}>Col</Row.Col>
         <Row.Col xs={24} sm={12} md={8} lg={6} xl={3}>Col</Row.Col>

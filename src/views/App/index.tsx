@@ -19,7 +19,7 @@ interface menuListProps {
 // 菜单导航的列表
 const menuList: Array<menuListProps> = [
   {
-    title: "Panda-ui",
+    title: "Panda-react-ui",
     path: "/"
   },
   {
