@@ -3,6 +3,7 @@
   "version": "0.1.2",
   "description": "",
   "author": "wxb",
+  "homepage":"https://deardreamweb.github.io/panda-react-ui.github.io",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -42,8 +43,7 @@
     "react-syntax-highlighter": "^15.3.0",
     "react-transition-group": "^4.4.1",
     "remark-gfm": "^1.0.0",
-    "typescript": "^3.7.5",
-    "panda-ui": "0.1.0"
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
