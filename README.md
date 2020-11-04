@@ -2,7 +2,7 @@
 基于React hooks和Typescript开发的一款ui组件库，名为panda-react-ui
 
 # 项目地址
-[项目预览](https://deardreamweb.github.io/panda-ui.github.io/#/)
+[项目预览](https://deardreamweb.github.io/panda-react-ui.github.io/#/)
 
 [项目地址](https://github.com/dearDreamWeb/panda-ui.github.io/tree/npm-data)
 

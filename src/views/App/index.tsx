@@ -106,7 +106,7 @@ function App() {
           <header className="header">
             <div className="header-left">
               <img src={logo} alt="logo" className="logo" />
-              <span className="title">Panda-ui</span>
+              <span className="title">Panda-react-ui</span>
             </div>
             <div className="header-right">
               <a href="https://github.com/dearDreamWeb/panda-ui.github.io" target="_blank" rel="noopener noreferrer">
