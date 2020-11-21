@@ -1,0 +1,19 @@
+@import "../../styles/index.scss";
+.pa-input-wrap {
+  display: flex;
+  align-items: center;
+  //   border: 1px solid $gray-400;
+  //   border-radius: 3px;
+  //   font-size: $font-size-sm;
+  &.pa-input-addonBefore,
+  &.pa-input-addonAfter {
+    background-color: $gray-200;
+    border-radius: 3px;
+    // border: 1px solid $gray-400;
+    .addonBefore-content,
+    .addonAfter-content {
+      display: inline-block;
+      padding:0 0.4rem;
+    }
+  }
+}
