@@ -1,19 +1,41 @@
 @import "../../styles/index.scss";
 .pa-input-wrap {
   display: flex;
-  align-items: center;
-  //   border: 1px solid $gray-400;
-  //   border-radius: 3px;
-  //   font-size: $font-size-sm;
+  // 前后缀公有样式
   &.pa-input-addonBefore,
   &.pa-input-addonAfter {
-    background-color: $gray-200;
-    border-radius: 3px;
-    // border: 1px solid $gray-400;
     .addonBefore-content,
     .addonAfter-content {
-      display: inline-block;
-      padding:0 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 0.4rem;
+      background-color: lighten($black, 90%);
+      border: 1px solid $gray-400;
+      border-radius: 3px;
+    }
+  }
+  // 前缀样式
+  &.pa-input-addonBefore {
+    .addonBefore-content {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+    .pa-input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  // 后缀样式
+  &.pa-input-addonAfter {
+    .addonAfter-content {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+    }
+    .pa-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
 }

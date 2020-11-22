@@ -25,6 +25,11 @@ input {
   border: 1px solid $gray-400;
   border-radius: 3px;
   font-size: $font-size-sm;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    border: 1px solid $primary;
+    outline: none;
+  }
   &:focus {
     border: 1px solid $primary;
     outline: none;
