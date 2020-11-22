@@ -1,7 +1,7 @@
 @import "../../styles/index.scss";
 .pa-input-wrap {
   display: flex;
-  // 前后缀公有样式
+  // 前后置公有样式
   &.pa-input-addonBefore,
   &.pa-input-addonAfter {
     .addonBefore-content,
@@ -14,7 +14,7 @@
       border-radius: 3px;
     }
   }
-  // 前缀样式
+  // 前置样式
   &.pa-input-addonBefore {
     .addonBefore-content {
       border-top-right-radius: 0;
@@ -26,7 +26,7 @@
       border-bottom-left-radius: 0;
     }
   }
-  // 后缀样式
+  // 后置样式
   &.pa-input-addonAfter {
     .addonAfter-content {
       border-top-left-radius: 0;
@@ -36,6 +36,16 @@
     .pa-input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+    }
+  }
+
+  // 禁止样式
+  &.is-disabled{
+    .pa-input{
+      background-color: $gray-200;
+      opacity:0.65;
+      cursor: not-allowed;
+      color: $gray-400;
     }
   }
 }

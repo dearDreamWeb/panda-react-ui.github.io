@@ -14,7 +14,7 @@ const Introduce: React.FC<HTMLElement> = () => {
                 <a href="https://www.tslang.cn/" className="href" target="_blank" rel="noopener noreferrer">TypeScript</a>
                 提供了静态类型检查，让开发人员可以在代码运行之前识别某些类型问题。Panda-react-ui 完全使用 TypeScript 编写，有效增强了代码的健壮性。
             </Common>
-            <Input addonBefore="http://" addonAfter={<Icon icon="arrow-alt-circle-down" theme="primary"/>} placeholder="请输入" />
+            <Input defaultValue="adaljadasdfdlj" readOnly  placeholder="请输入" />
         </>
     )
 }
